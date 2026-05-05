@@ -10,6 +10,7 @@
     "<|im_end|>"
   ],
   "is_local": false,
+  "local_files_only": false,
   "model_max_length": 8192,
   "pad_token": "<|im_end|>",
   "tokenizer_class": "GPT2Tokenizer",

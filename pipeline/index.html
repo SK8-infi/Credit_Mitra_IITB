@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Mitra – Bank Statement Analyzer</title>
+  <meta name="description" content="AI-powered bank statement analyzer. Upload a PDF, extract transactions, and identify payees automatically." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── reset & tokens ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0b0f19;
+      --surface:    #111827;
+      --surface-2:  #1e293b;
+      --border:     #1e293b;
+      --border-hl:  #334155;
+      --text:       #e2e8f0;
+      --text-dim:   #94a3b8;
+      --accent:     #818cf8;
+      --accent-dim: #6366f1;
+      --green:      #34d399;
+      --green-dim:  #059669;
+      --red:        #f87171;
+      --orange:     #fb923c;
+      --radius:     12px;
+      --radius-sm:  8px;
+      --shadow:     0 4px 24px rgba(0,0,0,.4);
+      --font:       'Inter', system-ui, sans-serif;
+    }
+
+    html { font-size: 15px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ── header ──────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 60%, #0b0f19 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.6rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header .logo {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      border-radius: 12px;
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 1.3rem; color: #0b0f19;
+    }
+    header h1 {
+      font-size: 1.5rem; font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    header .subtitle {
+      font-size: .82rem; color: var(--text-dim); margin-left: auto;
+    }
+
+    /* ── main container ──────────────────────────────────────── */
+    main { flex: 1; padding: 2rem; max-width: 1240px; width: 100%; margin: 0 auto; }
+
+    /* ── upload card ──────────────────────────────────────────── */
+    #upload-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    #upload-section.drag-over {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(129,140,248,.2);
+    }
+    #upload-section .icon {
+      font-size: 3rem; margin-bottom: 1rem; opacity: .6;
+    }
+    #upload-section h2 {
+      font-size: 1.25rem; font-weight: 600; margin-bottom: .5rem;
+    }
+    #upload-section p {
+      color: var(--text-dim); font-size: .88rem; margin-bottom: 1.4rem;
+    }
+    #file-input { display: none; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .65rem 1.6rem;
+      border: none; border-radius: var(--radius-sm);
+      font-family: var(--font); font-weight: 600; font-size: .88rem;
+      cursor: pointer; transition: all .2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+      color: #fff;
+    }
+    .btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .btn-primary:disabled {
+      opacity: .45; pointer-events: none;
+    }
+    .btn-success {
+      background: linear-gradient(135deg, var(--green-dim), var(--green));
+      color: #0b0f19;
+    }
+    .btn-success:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    #selected-file {
+      margin-top: 1rem; font-size: .85rem; color: var(--green);
+      min-height: 1.5em;
+    }
+
+    /* ── progress / status ───────────────────────────────────── */
+    #status-section {
+      display: none;
+      margin-top: 1.8rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    #status-section h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; }
+
+    .progress-track {
+      background: var(--surface-2);
+      border-radius: 999px;
+      height: 8px; overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress-bar {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+      width: 0%; transition: width .6s ease;
+    }
+    #status-text {
+      font-size: .85rem; color: var(--text-dim);
+    }
+
+    /* ── results ─────────────────────────────────────────────── */
+    #results-section {
+      display: none;
+      margin-top: 1.8rem;
+    }
+
+    .results-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.2rem; flex-wrap: wrap; gap: .8rem;
+    }
+    .results-header h3 { font-size: 1.15rem; font-weight: 700; }
+
+    /* stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+    }
+    .stat-card .label { font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; }
+    .stat-card .value { font-size: 1.4rem; font-weight: 700; margin-top: .25rem; }
+    .stat-card .value.green { color: var(--green); }
+    .stat-card .value.red   { color: var(--red); }
+    .stat-card .value.accent { color: var(--accent); }
+    .stat-card .value.orange { color: var(--orange); }
+
+    /* table */
+    .table-wrapper {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: .82rem;
+    }
+    thead th {
+      position: sticky; top: 0;
+      background: var(--surface-2);
+      padding: .75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-size: .72rem;
+      letter-spacing: .06em;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody td {
+      padding: .65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      max-width: 340px;
+      word-break: break-word;
+    }
+    tbody tr:hover { background: rgba(129,140,248,.04); }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .badge-deposit  { background: rgba(52,211,153,.15); color: var(--green); }
+    .badge-withdraw { background: rgba(248,113,113,.15); color: var(--red); }
+    .badge-payee    { background: rgba(129,140,248,.15); color: var(--accent); }
+
+    /* ── footer ──────────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 1.4rem;
+      font-size: .78rem; color: var(--text-dim);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── spinner ─────────────────────────────────────────────── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 2px solid var(--border-hl);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+      margin-right: .5rem;
+    }
+
+    /* ── responsive ──────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      main { padding: 1rem; }
+      header { padding: 1rem; }
+      header h1 { font-size: 1.15rem; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">CM</div>
+  <h1>Credit Mitra</h1>
+  <span class="subtitle">AI-Powered Bank Statement Analyzer</span>
+</header>
+
+<main>
+  <!-- Upload -->
+  <section id="upload-section">
+    <div class="icon">📄</div>
+    <h2>Upload Bank Statement PDF</h2>
+    <p>Drop your bank statement here or click to select. Docling will extract tables and the fine-tuned SLM will identify payees.</p>
+    <input type="file" id="file-input" accept=".pdf" />
+    <button class="btn btn-primary" id="select-btn" onclick="document.getElementById('file-input').click()">
+      <span>📁</span> Choose PDF
+    </button>
+    <div id="selected-file"></div>
+    <div style="margin-top:1rem;">
+      <button class="btn btn-success" id="process-btn" disabled onclick="uploadAndProcess()">
+        <span>⚡</span> Process Statement
+      </button>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section id="status-section">
+    <h3>🔄 Processing …</h3>
+    <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    <div id="status-text"><span class="spinner"></span>Uploading and extracting tables …</div>
+  </section>
+
+  <!-- Results -->
+  <section id="results-section">
+    <div class="results-header">
+      <h3>📊 Extracted Transactions</h3>
+      <button class="btn btn-success" id="download-btn" onclick="downloadJSON()">
+        <span>⬇</span> Download JSON
+      </button>
+    </div>
+
+    <div class="stats-row" id="stats-row"></div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Particulars</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Balance</th>
+            <th>Payee (SLM)</th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Credit Mitra · Built with Docling + SmolLM2 LoRA · IITB Chanakya Fellowship
+</footer>
+
+<script>
+  // ── file selection ────────────────────────────────────────────
+  const fileInput = document.getElementById('file-input');
+  const processBtn = document.getElementById('process-btn');
+  const selectedFile = document.getElementById('selected-file');
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) {
+      selectedFile.textContent = '✔ ' + fileInput.files[0].name;
+      processBtn.disabled = false;
+    }
+  });
+
+  // drag-and-drop
+  const dropZone = document.getElementById('upload-section');
+  ['dragenter','dragover'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('drag-over'); }));
+  ['dragleave','drop'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.remove('drag-over'); }));
+  dropZone.addEventListener('drop', ev => {
+    const files = ev.dataTransfer.files;
+    if (files.length && files[0].name.toLowerCase().endsWith('.pdf')) {
+      fileInput.files = files;
+      selectedFile.textContent = '✔ ' + files[0].name;
+      processBtn.disabled = false;
+    }
+  });
+
+  // ── data store ────────────────────────────────────────────────
+  let resultData = [];
+
+  // ── upload & process ──────────────────────────────────────────
+  async function uploadAndProcess() {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    // show progress
+    document.getElementById('status-section').style.display = 'block';
+    document.getElementById('results-section').style.display = 'none';
+    processBtn.disabled = true;
+
+    const bar = document.getElementById('progress-bar');
+    const statusText = document.getElementById('status-text');
+
+    bar.style.width = '15%';
+    statusText.innerHTML = '<span class="spinner"></span>Uploading PDF and extracting tables with Docling …';
+
+    const form = new FormData();
+    form.append('pdf', file);
+
+    // fake progress
+    let fakeProgress = 15;
+    const interval = setInterval(() => {
+      fakeProgress = Math.min(fakeProgress + Math.random() * 4, 90);
+      bar.style.width = fakeProgress + '%';
+    }, 800);
+
+    try {
+      statusText.innerHTML = '<span class="spinner"></span>Running Docling extraction + SLM payee inference …';
+      const resp = await fetch('/process-pdf', { method: 'POST', body: form });
+
+      clearInterval(interval);
+
+      if (!resp.ok) throw new Error('Server returned ' + resp.status);
+
+      const data = await resp.json();
+      resultData = data.transactions || [];
+
+      bar.style.width = '100%';
+      statusText.innerHTML = '✅ Done — ' + resultData.length + ' rows extracted.';
+
+      renderResults();
+    } catch (err) {
+      clearInterval(interval);
+      bar.style.width = '100%';
+      bar.style.background = 'var(--red)';
+      statusText.innerHTML = '❌ Error: ' + err.message;
+    }
+  }
+
+  // ── render ────────────────────────────────────────────────────
+  function renderResults() {
+    if (!resultData.length) return;
+
+    document.getElementById('results-section').style.display = 'block';
+
+    // stats
+    let deposits = 0, withdrawals = 0, payeeCount = 0;
+    resultData.forEach(t => {
+      const dep = parseFloat((t.deposits || '').replace(/,/g, '')) || 0;
+      const wth = parseFloat((t.withdrawals || '').replace(/,/g, '')) || 0;
+      deposits += dep;
+      withdrawals += wth;
+      if (t.payee) payeeCount++;
+    });
+
+    document.getElementById('stats-row').innerHTML = `
+      <div class="stat-card"><div class="label">Total Rows</div><div class="value accent">${resultData.length}</div></div>
+      <div class="stat-card"><div class="label">Total Deposits</div><div class="value green">₹${deposits.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div></div>
+      <div class="stat-card"><div class="label">Total Withdrawals</div><div class="value red">₹${withdrawals.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div></div>
+      <div class="stat-card"><div class="label">Payees Identified</div><div class="value orange">${payeeCount} / ${resultData.length}</div></div>
+    `;
+
+    // table
+    const tbody = document.getElementById('results-body');
+    tbody.innerHTML = resultData.map((t, i) => {
+      const isDeposit = !!t.deposits && t.deposits !== '' && t.deposits !== 'Opening Balance' && t.deposits !== 'Closing Balance';
+      const isWithdraw = !!t.withdrawals && t.withdrawals !== '';
+      const amount = isDeposit ? t.deposits : (isWithdraw ? t.withdrawals : '—');
+      const typeBadge = isDeposit
+        ? '<span class="badge badge-deposit">CREDIT</span>'
+        : (isWithdraw ? '<span class="badge badge-withdraw">DEBIT</span>' : '—');
+      const payeeBadge = t.payee ? `<span class="badge badge-payee">${escHtml(t.payee)}</span>` : '<span style="color:var(--text-dim)">—</span>';
+
+      return `<tr>
+        <td>${i + 1}</td>
+        <td>${escHtml(t.date) || '—'}</td>
+        <td>${escHtml(t.particulars) || '—'}</td>
+        <td>${typeBadge}</td>
+        <td>${escHtml(amount)}</td>
+        <td>${escHtml(t.balance) || '—'}</td>
+        <td>${payeeBadge}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function escHtml(s) {
+    if (!s) return '';
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  // ── download ──────────────────────────────────────────────────
+  function downloadJSON() {
+    const blob = new Blob([JSON.stringify(resultData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'transactions_with_payee.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

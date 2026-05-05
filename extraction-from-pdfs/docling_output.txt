@@ -1,0 +1,1318 @@
+[
+    {
+        "date": "",
+        "particulars": "",
+        "deposits": "Opening Balance",
+        "withdrawals": "",
+        "balance": "1,213.95"
+    },
+    {
+        "date": "15-01-2026",
+        "particulars": "UPI/DR/601591718046/SWIGGY LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI5160ADD67A54440DBB 3776E77D53B820/15/01/2026 14:36:08",
+        "deposits": "",
+        "withdrawals": "172.00",
+        "balance": "1,041.95"
+    },
+    {
+        "date": "16-01-2026",
+        "particulars": "UPI/DR/601646595861/ADWETA EN/YESB/**36193@YBL/UPI//SB ID27359BF4F994A578FBEEA89 FDB64071/16/01/2026 11:53:06",
+        "deposits": "",
+        "withdrawals": "40.00",
+        "balance": "1,001.95"
+    },
+    {
+        "date": "16-01-2026",
+        "particulars": "Chq: 601646595861 UPI/DR/601669488302/ADWETA EN/YESB/**36193@YBL/UPI//SB IDDE53C452EB345208FEAFF5F 949A3EA7/16/01/2026 17:07:40",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "951.95"
+    },
+    {
+        "date": "17-01-2026",
+        "particulars": "Chq: 601669488302 UPI/CR/601732821168/GAJNANI P/KKBK/**60222@PTHDFC/NA// PTM4622107F439543DB9F094C 8771ECCBA7/17/01/2026",
+        "deposits": "2,880.00",
+        "withdrawals": "",
+        "balance": "3,831.95"
+    },
+    {
+        "date": "17-01-2026",
+        "particulars": "UPI/DR/601793248361/RISHU KAW/ICIC/**RA3- 5@OKICICI/UPI//AXI97E9F304B 77E42CF94B197798EEFDFCF/1 7/01/2026 13:06:36",
+        "deposits": "",
+        "withdrawals": "2,138.00",
+        "balance": "1,693.95"
+    },
+    {
+        "date": "17-01-2026",
+        "particulars": "UPI/DR/601775973727/SWIGGY /ICIC/**WIGGY@ICICI/UPI//AXI6 62C1C57683A4910A6732E700C E6FE3C/17/01/2026 17:58:29",
+        "deposits": "",
+        "withdrawals": "107.00",
+        "balance": "1,586.95"
+    },
+    {
+        "date": "17-01-2026",
+        "particulars": "UPI/DR/638347605398/BHARTI AI/HDFC/**EL121@HDFCBANK/ UPI//AXIB2630B2C4A724243897 EDBD7895B6A72/17/01/2026 21:31:40",
+        "deposits": "",
+        "withdrawals": "22.00",
+        "balance": "1,564.95"
+    },
+    {
+        "date": "17-01-2026",
+        "particulars": "UPI/DR/638380113225/SHINY CH/SBIN/**A2003@OKSBI/UPI// AXIF93C9AD121774855BC2CE4 AB8941806E/17/01/2026 23:15:10",
+        "deposits": "",
+        "withdrawals": "100.00",
+        "balance": "1,464.95"
+    },
+    {
+        "date": "18-01-2026",
+        "particulars": "UPI/CR/638449477625/NAMAN/I CIC/**N50- 1@OKICICI/UPI//ICI65E36F0129 9C400AB24FC55260725F5C/18/ 01/2026 15:27:48",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "3,464.95"
+    },
+    {
+        "date": "18-01-2026",
+        "particulars": "Chq: 638449477625 UPI/DR/638426589509/ADITYA BI/HDFC/**05120@HDFCBANK/ UPI//PLUTUSDQR00000000000 000001157753589/18/01/2026 15:38:41",
+        "deposits": "",
+        "withdrawals": "799.50",
+        "balance": "2,665.45"
+    },
+    {
+        "date": "18-01-2026",
+        "particulars": "UPI/DR/601865247681/YOGESH RA/FDRL/**79447@FBPE/PAY TO B//SBIE23BEE6E2DD248E7AE2 683CF0FCF252E/18/01/2026 17:08:39",
+        "deposits": "",
+        "withdrawals": "64.00",
+        "balance": "2,601.45"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 601865247681",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "18-01-2026",
+        "particulars": "UPI/DR/601887865534/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC65AF25D617DC81F3B 428EDC1F1D01/18/01/2026 19:28:07",
+        "deposits": "",
+        "withdrawals": "700.00",
+        "balance": "1,901.45"
+    },
+    {
+        "date": "18-01-2026",
+        "particulars": "UPI/DR/601842825424/NARIND ER /SBIN/**H2007@OKSBI/UPI//AXI SWC858ADBFAD362DBA1A614 426F8CBB9/18/01/2026 19:48:21",
+        "deposits": "",
+        "withdrawals": "251.00",
+        "balance": "1,650.45"
+    },
+    {
+        "date": "19-01-2026",
+        "particulars": "UPI/DR/601953976142/SHAILEN DR/YESB/**26400@YBL/UPI//A XIEC3994DAAAB440818F3DF20 B0E388489/19/01/2026 20:12:05",
+        "deposits": "",
+        "withdrawals": "15.00",
+        "balance": "1,635.45"
+    },
+    {
+        "date": "19-01-2026",
+        "particulars": "UPI/DR/601927191084/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI087A5605531846319C5 3DCBE6B25EFC6/19/01/2026 21:04:43",
+        "deposits": "",
+        "withdrawals": "124.17",
+        "balance": "1,511.28"
+    },
+    {
+        "date": "20-01-2026",
+        "particulars": "UPI/DR/602056178623/DAULAT RA/YESB/**L0EIL@PTYS/UPI//S BIAFFF68A24BC94BE2B4453F4 1841CFFE6/20/01/2026 13:13:49",
+        "deposits": "",
+        "withdrawals": "40.00",
+        "balance": "1,471.28"
+    },
+    {
+        "date": "20-01-2026",
+        "particulars": "UPI/DR/602057576700/ADWETA EN/YESB/**36193@YBL/UPI//SB I2CDBEBBC79EA4819BEDED47 DE2540AE6/20/01/2026 13:30:57",
+        "deposits": "",
+        "withdrawals": "20.00",
+        "balance": "1,451.28"
+    },
+    {
+        "date": "20-01-2026",
+        "particulars": "UPI/DR/602068990319/ANITA SHA/YESB/**QJYQB@PTY/UPI// SBIAA39D3F6E6F747C0BB8498 9D1F6C3B4A/20/01/2026 16:09:37",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "1,391.28"
+    },
+    {
+        "date": "20-01-2026",
+        "particulars": "Chq: 602068990319 UPI/DR/638620543536/ADWETA EN/YESB/**36193@YBL/UPI//AX IE8908A22FBC141CAB101B3BD 6E673B07/20/01/2026 17:58:15",
+        "deposits": "",
+        "withdrawals": "100.00",
+        "balance": "1,291.28"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 638620543536",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "20-01-2026",
+        "particulars": "UPI/CR/697783227080/SOMESH KU/BKID/**55745@PTYES/CAN A//PTM59FE56EAC07C4A7F9D3 F25833465E8C3/20/01/2026 22:04:53",
+        "deposits": "4,000.00",
+        "withdrawals": "",
+        "balance": "5,291.28"
+    },
+    {
+        "date": "21-01-2026",
+        "particulars": "Chq: 697783227080 UPI/DR/602112054026/ADWETA EN/YESB/**36193@YBL/UPI//SB I6A5DE7893612496D92DDDA4B 55EEC57A/21/01/2026 16:12:13",
+        "deposits": "",
+        "withdrawals": "20.00",
+        "balance": "5,271.28"
+    },
+    {
+        "date": "22-01-2026",
+        "particulars": "UPI/CR/638868215313/VRITTI UG/HDFC/**YAL07@OKAXIS/U PI//AXID5FA61AB7194448A87D DA640D089C90A/22/01/2026 13:08:20",
+        "deposits": "40.00",
+        "withdrawals": "",
+        "balance": "5,311.28"
+    },
+    {
+        "date": "22-01-2026",
+        "particulars": "UPI/DR/602264579690/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI6AC6433E287941398C4 93A936215EA9D/22/01/2026 16:45:01",
+        "deposits": "",
+        "withdrawals": "130.49",
+        "balance": "5,180.79"
+    },
+    {
+        "date": "23-01-2026",
+        "particulars": "UPI/DR/602313517214/SUPRAS H H/UTIB/**48997@PTA/UPI//AXIC A35CB261C5444AC973DC077A 181B442/23/01/2026 14:00:31",
+        "deposits": "",
+        "withdrawals": "1,071.00",
+        "balance": "4,109.79"
+    },
+    {
+        "date": "23-01-2026",
+        "particulars": "UPI/DR/602320532832/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC2ECBD169EAB1045A3 7C05D5869A9F/23/01/2026 14:57:18",
+        "deposits": "",
+        "withdrawals": "1,387.00",
+        "balance": "2,722.79"
+    },
+    {
+        "date": "23-01-2026",
+        "particulars": "UPI/CR/109044882993/GAJNANI P/KKBK/**.0222@WAICICI/NA//I CIWC7118D3C3B2A082AF324E 91D5CAB1A0/23/01/2026 14:58:45",
+        "deposits": "300.00",
+        "withdrawals": "",
+        "balance": "3,022.79"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 109044882993",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "23-01-2026",
+        "particulars": "UPI/DR/602310562400/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC015AD2121DA7DAA1C FC7679CAA3B0/23/01/2026 14:59:43",
+        "deposits": "",
+        "withdrawals": "300.00",
+        "balance": "2,722.79"
+    },
+    {
+        "date": "24-01-2026",
+        "particulars": "UPI/DR/602433021740/AMAZON IN/UTIB/**ONUPI@APL/YOU ARE //APL019BEC455AB26200CE04 79B827855298/24/01/2026 00:42:19",
+        "deposits": "",
+        "withdrawals": "1,504.00",
+        "balance": "1,218.79"
+    },
+    {
+        "date": "27-01-2026",
+        "particulars": "UPI/DR/602748829070/GOPALA SP/YESB/**W6F12@PAYTM/UPI //SBI72F058847A2D4D0D83690 E182CFC683F/27/01/2026 16:19:43",
+        "deposits": "",
+        "withdrawals": "250.00",
+        "balance": "968.79"
+    },
+    {
+        "date": "28-01-2026",
+        "particulars": "UPI/CR/602848522400/NAMAN/I CIC/**N50- 1@OKICICI/UPI//ICI71452B4E17 6D45E894774F7E85396F7D/28/ 01/2026 06:48:00",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "2,968.79"
+    },
+    {
+        "date": "28-01-2026",
+        "particulars": "UPI/DR/602890466792/ADWETA EN/YESB/**36193@YBL/UPI//SB I1F365E1775404F7CB09470FFE 822B780/28/01/2026 13:06:56",
+        "deposits": "",
+        "withdrawals": "100.00",
+        "balance": "2,868.79"
+    },
+    {
+        "date": "28-01-2026",
+        "particulars": "UPI/DR/602805991170/ADWETA EN/YESB/**36193@YBL/UPI//SB I5C26544B652B4371AA81BCA1 1A4765B0/28/01/2026 16:44:58",
+        "deposits": "",
+        "withdrawals": "40.00",
+        "balance": "2,828.79"
+    },
+    {
+        "date": "28-01-2026",
+        "particulars": "UPI/DR/602812680405/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//ICIA9125977D6884CCB938 A8B6AD06D5AC1/28/01/2026 20:59:34",
+        "deposits": "",
+        "withdrawals": "75.82",
+        "balance": "2,752.97"
+    },
+    {
+        "date": "29-01-2026",
+        "particulars": "UPI/DR/639515417356/SWIGGY /AIRP/**1.RZP@RXAIRTEL/SWI GGY//ICID3D0445DDB7B4FFB9 BF8B7104BCD6A8F/29/01/2026 13:31:37",
+        "deposits": "",
+        "withdrawals": "107.00",
+        "balance": "2,645.97"
+    },
+    {
+        "date": "29-01-2026",
+        "particulars": "UPI/DR/602973152675/NYKAA ERE/AIRP/**D.RZP@MAIRTEL/ PAYVIARA//SBI9DDF9D76E47E 435D810FDFB85B1A443F/29/01 /2026 22:17:04",
+        "deposits": "",
+        "withdrawals": "434.00",
+        "balance": "2,211.97"
+    },
+    {
+        "date": "30-01-2026",
+        "particulars": "UPI/DR/603006428146/ADWETA EN/YESB/**36193@YBL/UPI//SB I00B765FA12BB417B965236D17 80BFA0C/30/01/2026 15:05:45",
+        "deposits": "",
+        "withdrawals": "35.00",
+        "balance": "2,176.97"
+    },
+    {
+        "date": "30-01-2026",
+        "particulars": "UPI/DR/603006712667/ADWETA EN/YESB/**36193@YBL/UPI//SB IA90F454CC7CD47329A9739A5 AA70E560/30/01/2026 15:09:26",
+        "deposits": "",
+        "withdrawals": "100.00",
+        "balance": "2,076.97"
+    },
+    {
+        "date": "30-01-2026",
+        "particulars": "UPI/CR/603068326444/NAMAN JA/SBIN/**35045@OKAXIS/UPI// AXIB3F169E8C75347A0A9CCA EC4D689DC26/30/01/2026 15:09:31",
+        "deposits": "35.00",
+        "withdrawals": "",
+        "balance": "2,111.97"
+    },
+    {
+        "date": "30-01-2026",
+        "particulars": "UPI/DR/603017713750/TARUN TOM/YESB/**95716@YBL/UPI// SBI825AAEF9E6424285A3B11E EF8098DD7B/30/01/2026 17:34:45",
+        "deposits": "",
+        "withdrawals": "35.00",
+        "balance": "2,076.97"
+    },
+    {
+        "date": "30-01-2026",
+        "particulars": "Chq: 603017713750 UPI/DR/603018370393/TARUN TOM/YESB/**95716@YBL/UPI// SBIC95DCE1623964275B3E9A9 8598CAF945/30/01/2026 17:41:38",
+        "deposits": "",
+        "withdrawals": "15.00",
+        "balance": "2,061.97"
+    },
+    {
+        "date": "31-01-2026",
+        "particulars": "Chq: 603018370393 UPI/DR/603146436080/AIRTEL/ YESB/**PAYTM@PTYBL/UPI//P YTM60131800034772315137XX XXXXXXXXX/31/01/2026 00:08:15",
+        "deposits": "",
+        "withdrawals": "49.00",
+        "balance": "2,012.97"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603146436080",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": "page 6"
+    },
+    {
+        "date": "31-01-2026",
+        "particulars": "UPI/DR/603171934265/RAJESH YA/PUNB/**5JB5Z@PTYES/UPI/ /SBI6CAC5CCE61874850BEF91 8648DB9B276/31/01/2026 14:49:30",
+        "deposits": "",
+        "withdrawals": "417.00",
+        "balance": "1,595.97"
+    },
+    {
+        "date": "31-01-2026",
+        "particulars": "Chq: 603171934265 UPI/CR/315749890316/GOOGLE IN/UTIB/**MENTS@AXISBANK/ UPI//AXI85366BC8F62C4F6FBD ED75933EF363EB/31/01/2026 23:24:32",
+        "deposits": "6.00",
+        "withdrawals": "",
+        "balance": "1,601.97"
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "UPI/DR/603239792376/DOLCE TON/PUNB/**6.MAB@PNB/UPI// SBI1AA9D54D210044C2A7BB2 AA149374694/01/02/2026",
+        "deposits": "",
+        "withdrawals": "156.00",
+        "balance": "1,445.97"
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "UPI/DR/603284741305/GAJNANI P/KKBK/**ANERD@OKICICI/UPI //AXI5619B98C99D642DFA61DF BB13864F10D/01/02/2026 21:44:46",
+        "deposits": "",
+        "withdrawals": "16.75",
+        "balance": "1,429.22"
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "Chq: 603284741305 UPI/DR/603297037267/GAJNANI P/KKBK/**ANERD@OKICICI/UPI //AXI6BBC6F5B081A46229D504 BAED74F3168/01/02/2026 21:45:50",
+        "deposits": "",
+        "withdrawals": "8.75",
+        "balance": "1,420.47"
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "UPI/DR/639862767972/PRINCE AKA/KKBK/**ANERD@OKICICI/ UPI//ICI74486E637B194EB29EA 43DFBC7D630BE/01/02/2026 21:46:24",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "1,370.47"
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "UPI/DR/603240951899/PURWA NSHI/UCBA/**AJ300@OKAXIS/ UPI//AXISWCF905E20FB0237A9 4EE3085C9330D5/01/02/2026 22:04:22",
+        "deposits": "",
+        "withdrawals": "30.00",
+        "balance": "1,340.47"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603240951899",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "01-02-2026",
+        "particulars": "UPI/CR/603206821388/PURWA NSHI/UCBA/**78757@PTHDFC/ RAKHO CH//PTM4B01AC244B684576A2 04EDAC2ED29414/01/02/2026 22:08:24",
+        "deposits": "30.00",
+        "withdrawals": "",
+        "balance": "1,370.47"
+    },
+    {
+        "date": "02-02-2026",
+        "particulars": "UPI/DR/603396207425/DAKSHA ME/UTIB/**84111@PTAXIS/UPI// AXISWCF032E0D2BF9403236B 24148A1E585/02/02/2026 00:10:33",
+        "deposits": "",
+        "withdrawals": "1,000.00",
+        "balance": "370.47"
+    },
+    {
+        "date": "02-02-2026",
+        "particulars": "UPI/CR/603374358040/SHINY CH/SBIN/**A2003@OKSBI/UPI// SBI38BF6815F7154786B12A1C 4813437DC9/02/02/2026 00:58:01",
+        "deposits": "104.25",
+        "withdrawals": "",
+        "balance": "474.72"
+    },
+    {
+        "date": "02-02-2026",
+        "particulars": "UPI/DR/603325177553/SNEH DENI/UCBA/**AGARA@OKHDF CBANK/UPI//AXISWC461063642 B4D64E4A7677E1E08C2B/02/02 /2026 10:50:39",
+        "deposits": "",
+        "withdrawals": "400.00",
+        "balance": "74.72"
+    },
+    {
+        "date": "03-02-2026",
+        "particulars": "UPI/DR/603476076681/ADWETA EN/YESB/**36193@YBL/UPI//SB I4686D897649147908B089A4F6 2C1D889/03/02/2026 12:58:57",
+        "deposits": "",
+        "withdrawals": "20.00",
+        "balance": "54.72"
+    },
+    {
+        "date": "03-02-2026",
+        "particulars": "UPI/DR/603419276935/ARCHAN A S/YESB/**B34OA@PAYTM/UPI// SBIF8297077597A4264AA76BE D809651D0B/03/02/2026 20:50:57",
+        "deposits": "",
+        "withdrawals": "30.00",
+        "balance": "24.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "Chq: 603419276935 UPI/CR/603554063418/GARGI KA/SBIN/**LIA18@OKSBI/UPI//S BI06D83082C79940B3AB484A2 E8AEA0635/04/02/2026 13:27:53",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "2,024.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603554120923/GARGI KA/SBIN/**LIA18@OKSBI/UPI//S BI6BCDB4F247A14C558A60347 CE17AC996/04/02/2026 13:28:21",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "4,024.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "Chq: 603554120923 UPI/CR/603554099396/GARGI KA/SBIN/**LIA18@OKSBI/UPI//S BI75A13B0B323E486E807494A1 76DB3452/04/02/2026 13:28:39",
+        "deposits": "500.00",
+        "withdrawals": "",
+        "balance": "4,524.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603517063445/PIYUSH DU/BARB/**20753@NAVIAXIS/P AID VIA//AXB2026020413394517970 2615252582410/04/02/2026 13:39:57",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "6,524.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603517068521/PIYUSH DU/BARB/**20753@NAVIAXIS/P AID VIA//AXB2026020413394517970 2615252582420/04/02/2026 13:40:19",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "8,524.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603517072122/PIYUSH DU/BARB/**20753@NAVIAXIS/P AID VIA//AXB2026020413394517970 2615252582430/04/02/2026 13:40:36",
+        "deposits": "1,000.00",
+        "withdrawals": "",
+        "balance": "9,524.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/000530906141/SAKSHA M /SBIN/**97996@NYES/PAY//YB N2026020401423417967203551 9897640/04/02/2026 13:47:47",
+        "deposits": "5,000.00",
+        "withdrawals": "",
+        "balance": "14,524.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603555859812/MR SRIJAN/SBIN/**INEER@OKSBI/ UPI//SBI7D0ECAF5F86E4ED697 9D5FF8BA9C9B4F/04/02/2026 13:49:39",
+        "deposits": "1,100.00",
+        "withdrawals": "",
+        "balance": "15,624.72"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603555859812",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603594659580/YASHAS VI /HDFC/**I01- 1@OKAXIS/MEMBERSHIP//AXI 3EB94FC479424E7DBF3D49219 B4114C1/04/02/2026 13:50:09",
+        "deposits": "3,000.00",
+        "withdrawals": "",
+        "balance": "18,624.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603517252974/DAKSHA ME/UTIB/**84111@NAVIAXIS/P AID VIA//AXB2026020413534117933 9582195466250/04/02/2026 13:54:05",
+        "deposits": "5,500.00",
+        "withdrawals": "",
+        "balance": "24,124.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/396664534133/PRABAL P/SBIN/**07289@PTYES/SENT USI//PTM39B89FE214F548168B F4F0C62CF2D7EC/04/02/2026",
+        "deposits": "3,200.00",
+        "withdrawals": "",
+        "balance": "27,324.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603556576073/AYUSHI K/SBIN/**I9084@OKSBI/UPI//SB I772997C46AEB46EBB1EA4B7A 2CA494E9/04/02/2026 13:58:17",
+        "deposits": "1,100.00",
+        "withdrawals": "",
+        "balance": "28,424.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/626317715849/SAMAR SIN/UBIN/**50921@IBL/PAYME NT //IBL31E442494A364C04838100 8C2B6A8AAD/04/02/2026 14:00:48",
+        "deposits": "1,000.00",
+        "withdrawals": "",
+        "balance": "29,424.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603517251881/YASHAS VI /HDFC/**I01- 1@OKHDFCBANK/UPI//AXISWC 04EAE2C7EBD7A92C1D551D05 9DB2C/04/02/2026 14:14:42",
+        "deposits": "",
+        "withdrawals": "1,703.00",
+        "balance": "27,721.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603524434248/SAMIKS HA /CNRB/**48118@AXL/UPI//AXIS WC7B9676378C44FE685D3C1B 19FEC37/04/02/2026 14:15:00",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "26,020.72"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603524434248",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603568739903/MR SHIVAN/CBIN/**R1712@OKAXI S/UPI//AXIDCC9BCF0D0D645E1 92665F47A4AB88BC/04/02/2026 14:15:33",
+        "deposits": "3,200.00",
+        "withdrawals": "",
+        "balance": "29,220.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603530709208/ARSHPR EET/PUNB/**ETW11@OKAXIS/ UPI//AXISWCCE89ED32048A69 F953A41CD3E1B98/04/02/2026 14:18:22",
+        "deposits": "",
+        "withdrawals": "1,707.00",
+        "balance": "27,513.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603530150771/GARGI KA/SBIN/**LIA18@OKSBI/UPI//A XISWCCF6C93BCDA76E55CEA 4F5C11BA14F/04/02/2026",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "25,812.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603564571078/AYUSHI K/SBIN/**I9084@OKSBI/UPI//AX ISWC833BFF702EB3B93C6B3C E66239119/04/02/2026 14:18:57",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "24,111.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603565677275/MR SHIVAN/CBIN/**R1712@OKHDF CBANK/UPI//AXISWC556A485A 1B9D72E034C5E69436E95/04/0 2/2026 14:23:28",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "22,410.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603586736010/MR SHIVAN/CBIN/**R1712@OKHDF CBANK/UPI//AXISWCCC8D83B1 54BF51800920E24E25B60/04/02 /2026 14:23:41",
+        "deposits": "",
+        "withdrawals": "727.00",
+        "balance": "21,683.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603509977211/MR SRIJAN/SBIN/**INEER@OKICIC I/UPI//AXISWCF15EE96EE1F8A 39818EE6A30EBC2D/04/02/202 6 14:24:09",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "19,982.72"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603509977211",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603530607690/PIYUSH DU/BARB/**ESS07@OKSBI/UPI/ /AXISWC0B38126E08B79B3D2B A1F43FB76C1/04/02/2026 14:41:56",
+        "deposits": "",
+        "withdrawals": "1,701.00",
+        "balance": "18,281.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603592097722/SAMAR SIN/UBIN/**50921@IBL/UPI//AXI SWCF68D5C739BBA51F6F5B41 DE2B28F5/04/02/2026 14:51:33",
+        "deposits": "",
+        "withdrawals": "1,703.00",
+        "balance": "16,578.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/109125953577/TEJAS DIN/KKBK/**58364@WAICICI/N A//ICIWC81176F199F7360C654 1D2F774B6166/04/02/2026 15:08:43",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "18,578.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/109125957326/TEJAS DIN/KKBK/**58364@WAICICI/N A//ICIWCF7845B4AA571BE6F58 81DB97E4FA7E/04/02/2026 15:09:16",
+        "deposits": "1,000.00",
+        "withdrawals": "",
+        "balance": "19,578.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603513362761/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC7F375E36443D2C4A26 38DFA920DEE/04/02/2026 15:21:10",
+        "deposits": "",
+        "withdrawals": "1.00",
+        "balance": "19,577.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/137168860356/AMAZON PA/UTIB/**FUNDS@AXISBANK/ REFUND F//APL04118F834AFC4CE3A16 DBC1F92956D48/04/02/2026 16:18:33",
+        "deposits": "1,504.00",
+        "withdrawals": "",
+        "balance": "21,081.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "MB-IMPS-DR/DAKSHA MEHTA/UTIB/**5652/ /04/02/2026 16:30:39/603516378567",
+        "deposits": "",
+        "withdrawals": "9,800.00",
+        "balance": "11,281.72"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "IMPS SC Chq: 603516378567",
+        "deposits": "",
+        "withdrawals": "3.54",
+        "balance": "11,278.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/603575252538/ROHINT H/CNRB/**NTH- 1@OKAXIS/UPI//AXIB55DB73F DC9D4FF49AB3C4449358B56E/ 04/02/2026 16:45:42",
+        "deposits": "4,500.00",
+        "withdrawals": "",
+        "balance": "15,778.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603556785234/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC3E40957B13F90D7FE1 A73BA987CF9/04/02/2026 18:39:35",
+        "deposits": "",
+        "withdrawals": "300.00",
+        "balance": "15,478.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/109127296579/GAJNANI P/KKBK/**.0222@WAICICI/NA//I CIWCD4F65AE2065602D507018 A0BE991AC/04/02/2026 18:47:08",
+        "deposits": "300.00",
+        "withdrawals": "",
+        "balance": "15,778.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/DR/603510077861/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWCAA4FB37C77CB303D4 8A96DAA2B10C/04/02/2026 18:59:48",
+        "deposits": "",
+        "withdrawals": "300.00",
+        "balance": "15,478.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "MB-IMPS-DR/DAKSHA MEHTA/UTIB/**5652/ /04/02/2026 22:40:01/603522495165",
+        "deposits": "",
+        "withdrawals": "8,555.00",
+        "balance": "6,923.18"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "IMPS SC Chq: 603522495165",
+        "deposits": "",
+        "withdrawals": "3.54",
+        "balance": "6,919.64"
+    },
+    {
+        "date": "04-02-2026",
+        "particulars": "UPI/CR/721765509412/PATHLO TH /SBIN/**609- 2@YBL/PAYMENT //YBL09014BCF8E13489880BA9 AAC8CE5381D/04/02/2026 23:02:32",
+        "deposits": "1,000.00",
+        "withdrawals": "",
+        "balance": "7,919.64"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "Chq: 721765509412 UPI/DR/603603630780/ROHINT H/CNRB/**NTH- 1@OKAXIS/UPI//SBI3E618CC8F EDF4DFB838D399831AC7581/0 5/02/2026 01:31:34",
+        "deposits": "",
+        "withdrawals": "1,700.00",
+        "balance": "6,219.64"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603603630780",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603631856549/SAMIKS HA /CNRB/**48118@AXL/UPI//AXIS WC698D7288FD18B3BD9D4875 ADAC506/05/02/2026 11:55:35",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "6,159.64"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603627172466/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI573D321FE0974B8BAE BFB291F7B12B85/05/02/2026 13:11:58",
+        "deposits": "",
+        "withdrawals": "178.31",
+        "balance": "5,981.33"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603635080764/ACHLES H J/YESB/**QJV3P@PTY/UPI//SBI A5572327931647E79FC2022285 168EC0/05/02/2026 14:52:24",
+        "deposits": "",
+        "withdrawals": "30.00",
+        "balance": "5,951.33"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603600825840/PRATHA M S/SBIN/**AM058@OKSBI/UPI//I CI119BD798BEC9452C9BD65B 66E73441AA/05/02/2026 15:54:54",
+        "deposits": "",
+        "withdrawals": "136.75",
+        "balance": "5,814.58"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/CR/640227842075/GAJNANI P/KKBK/**ANERD@OKAXIS/UPI //AXI94A8354F06184E9A82EBE 668225B90B4/05/02/2026 15:54:56",
+        "deposits": "104.25",
+        "withdrawals": "",
+        "balance": "5,918.83"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603638638760/SAKSHA M /SBIN/**NS901@OKSBI/UPI//AXI SWC1C92326040E1B4C0819D4 0F6F7117/05/02/2026 17:26:52",
+        "deposits": "",
+        "withdrawals": "2,000.00",
+        "balance": "3,918.83"
+    },
+    {
+        "date": "05-02-2026",
+        "particulars": "UPI/DR/603640762937/SAKSHA M /SBIN/**NS901@OKSBI/UPI//AXI SWC9F73C65212A7D10E0C2B C62D7FB85/05/02/2026 17:27:01",
+        "deposits": "",
+        "withdrawals": "101.00",
+        "balance": "3,817.83"
+    },
+    {
+        "date": "06-02-2026",
+        "particulars": "UPI/DR/603707254627/NEHA/S BIN/**56676@AXL/UPI//AXISWC A77F784D691DF3641E753AE4E 66A3/06/02/2026 11:41:39",
+        "deposits": "",
+        "withdrawals": "15.00",
+        "balance": "3,802.83"
+    },
+    {
+        "date": "06-02-2026",
+        "particulars": "UPI/DR/603797871264/DAULAT RA/YESB/**HNAHC@PTYS/UPI/ /SBI150BB93D97E44C3E92544 CA265FE7C76/06/02/2026 12:20:34",
+        "deposits": "",
+        "withdrawals": "40.00",
+        "balance": "3,762.83"
+    },
+    {
+        "date": "06-02-2026",
+        "particulars": "UPI/DR/603701297858/SWIGGY LTD/UTIB/**GYUPI@AXB/PAY FOR //AXB20E5413DBCA646D39A0E A2FFA0DF27B9/06/02/2026 13:04:45",
+        "deposits": "",
+        "withdrawals": "194.00",
+        "balance": "3,568.83"
+    },
+    {
+        "date": "06-02-2026",
+        "particulars": "UPI/DR/603722242217/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI06C6033447384CD1994 551989D7ABBBF/06/02/2026 17:34:35",
+        "deposits": "",
+        "withdrawals": "165.58",
+        "balance": "3,403.25"
+    },
+    {
+        "date": "06-02-2026",
+        "particulars": "Chq: 603722242217 UPI/DR/603722578673/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI371834A447634970921 C063346B669CD/06/02/2026 17:38:22",
+        "deposits": "",
+        "withdrawals": "95.02",
+        "balance": "3,308.23"
+    },
+    {
+        "date": "07-02-2026",
+        "particulars": "UPI/DR/603856962492/ROHIT SA/SBIN/**99277@PTHDFC/UPI //AXID4645B6849EB4342922D3 0B5BA550411/07/02/2026 07:40:28",
+        "deposits": "",
+        "withdrawals": "162.00",
+        "balance": "3,146.23"
+    },
+    {
+        "date": "07-02-2026",
+        "particulars": "UPI/DR/603846594955/LAXMI SER/YESB/**TIK1A@PTYS/UPI// SBIDD98D76D8D8A4946A143A E2B14868B7B/07/02/2026 10:26:42",
+        "deposits": "",
+        "withdrawals": "210.00",
+        "balance": "2,936.23"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 603846594955",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "08-02-2026",
+        "particulars": "UPI/DR/603975424044/LAVKUS H K/UCBA/**98366@AXL/UPI//AXI F73DDC4D67654937A70904464 CC911B7/08/02/2026 16:25:31",
+        "deposits": "",
+        "withdrawals": "39.00",
+        "balance": "2,897.23"
+    },
+    {
+        "date": "08-02-2026",
+        "particulars": "UPI/DR/603973441802/NITESH TI/BKID/**83926@IBL/UPI//AXI8 C34D2F013A7422E87A733EAC D0A42B8/08/02/2026 18:52:05",
+        "deposits": "",
+        "withdrawals": "131.00",
+        "balance": "2,766.23"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "UPI/DR/640600021691/DAULAT RA/YESB/**HNAHC@PTYS/UPI/ /AXI720BB3867F704844871AD5 A692FDD3E3/09/02/2026 13:21:28",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "2,716.23"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "UPI/DR/604045397406/FLIPKAR T /YESB/**05013@PTYBL/UPI//PY TM60209804285251701793XXX XXXXXXXX/09/02/2026 15:37:55",
+        "deposits": "",
+        "withdrawals": "257.00",
+        "balance": "2,459.23"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "UPI/DR/604048258960/SWIGGY LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI2BC294554B1D46228E E3C53591CA278E/09/02/2026 16:20:30",
+        "deposits": "",
+        "withdrawals": "134.00",
+        "balance": "2,325.23"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "UPI/DR/640622260167/AMAN ENTE/YESB/**40254@YBL/UPI// AXI7903D96700394B42A9E1753 8145BE7F8/09/02/2026 18:44:29",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "2,265.23"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "UPI/DR/640635674433/CONNAU GHT/YESB/**00572@YAPL/UPI/ /AMZTOK2864D35794C0797C73 836C0F0F37B/09/02/2026 19:26:02",
+        "deposits": "",
+        "withdrawals": "11.43",
+        "balance": "2,253.80"
+    },
+    {
+        "date": "09-02-2026",
+        "particulars": "Chq: 640635674433 UPI/DR/640642263517/CONNAU GHT/YESB/**00572@YAPL/UPI/ /AMZTOK36ED8BD124BABB501 4985926D4E0E/09/02/2026 19:32:10",
+        "deposits": "",
+        "withdrawals": "88.20",
+        "balance": "2,165.60"
+    },
+    {
+        "date": "10-02-2026",
+        "particulars": "UPI/CR/604117868068/JASHAN PRE/BKID/**ET713@OKSBI/UPI/ /SBI61A7DFF228884C52B0BB5 CA72E9A15F3/10/02/2026 23:29:27",
+        "deposits": "35.00",
+        "withdrawals": "",
+        "balance": "2,200.60"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "Chq: 604117868068 UPI/DR/640805320375/SIDDHA NTB/IBKL/**WAR15@OKAXIS/U PI//AXIE5AB6682553E42BFA926 F3767EDCBD07/11/02/2026 12:27:36",
+        "deposits": "",
+        "withdrawals": "374.66",
+        "balance": "1,825.94"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "UPI/DR/604233654762/PRINCE AKA/KKBK/**ANERD@OKICICI/ UPI//ICIFF76D8F3C2A0461F9F9 5E47736F1A4A5/11/02/2026 12:31:14",
+        "deposits": "",
+        "withdrawals": "546.39",
+        "balance": "1,279.55"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "UPI/DR/640814449216/PRATHA M S/SBIN/**AM058@OKSBI/UPI//A XI8EDB2C30D7C74BDABB6E9C 542674E904/11/02/2026 12:32:18",
+        "deposits": "",
+        "withdrawals": "1,047.32",
+        "balance": "232.23"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "Chq: 640814449216 UPI/DR/604237922656/ADWETA EN/YESB/**36193@YBL/UPI//SB I6044DA9706AC44CA9F8AD85A 72F78287/11/02/2026 15:04:15",
+        "deposits": "",
+        "withdrawals": "20.00",
+        "balance": "212.23"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "UPI/DR/604244667154/K K CATER/YESB/**SYWWK@PTY/ UPI//SBI55E5C61790934CFFA9 AABB9023AA7523/11/02/2026 17:01:41",
+        "deposits": "",
+        "withdrawals": "10.00",
+        "balance": "202.23"
+    },
+    {
+        "date": "11-02-2026",
+        "particulars": "UPI/DR/604283706042/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//AXIA1BDCFAACC4B4F83B F12C08594D6427A/11/02/2026 19:58:09",
+        "deposits": "",
+        "withdrawals": "100.61",
+        "balance": "101.62"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 604283706042",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "12-02-2026",
+        "particulars": "UPI/DR/604348074181/TARUN TOM/YESB/**63638@YBL/UPI// AXIFBB59FCD89004C878ED164 46AB74CEF1/12/02/2026 17:00:17",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "51.62"
+    },
+    {
+        "date": "12-02-2026",
+        "particulars": "UPI/CR/640911352290/RAGHAV GU/ICIC/**505-2@OKICICI/SIR SE B//ICI67FFC611EEBB494DBEEE 8340428BDD16/12/02/2026 17:23:09",
+        "deposits": "160.00",
+        "withdrawals": "",
+        "balance": "211.62"
+    },
+    {
+        "date": "12-02-2026",
+        "particulars": "UPI/DR/640903141956/PGCOOL 505/ICIC/**505- 2@OKICICI/UPI//ICI47F2D83613 E7401F929D33C4455AB3D7/12/",
+        "deposits": "",
+        "withdrawals": "160.00",
+        "balance": "51.62"
+    },
+    {
+        "date": "13-02-2026",
+        "particulars": "UPI/CR/641031894211/SHINY CH/SBIN/**A2003@OKAXIS/UPI/ /AXI31B8ABE0E7814B5C97E54 B07104FBF89/13/02/2026 17:48:35",
+        "deposits": "1,472.50",
+        "withdrawals": "",
+        "balance": "1,524.12"
+    },
+    {
+        "date": "14-02-2026",
+        "particulars": "UPI/DR/604583443046/SUKANT SI/HDFC/**01363@PTHDFC/UPI //AXIE7F3911DFCD34E3B8E937 93C6024F5A2/14/02/2026 00:10:54",
+        "deposits": "",
+        "withdrawals": "120.00",
+        "balance": "1,404.12"
+    },
+    {
+        "date": "14-02-2026",
+        "particulars": "UPI/DR/604524639162/AVANI DAK/ICIC/**MEHTA@ICICI/UPI// AXISWC91D44B134250C7D03F 37FDDED6ACF/14/02/2026 13:27:25",
+        "deposits": "",
+        "withdrawals": "81.00",
+        "balance": "1,323.12"
+    },
+    {
+        "date": "14-02-2026",
+        "particulars": "UPI/CR/641128616643/TEJAS DIN/KKBK/**58364@NAVIAXIS/ PAID VIA//AXB2026021415255610768 8299151390000/14/02/2026 18:40:14",
+        "deposits": "5,000.00",
+        "withdrawals": "",
+        "balance": "6,323.12"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 641128616643",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "14-02-2026",
+        "particulars": "UPI/DR/641122128916/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//AXICD5F2E378D094254A3 82F464229966AC/14/02/2026 19:01:47",
+        "deposits": "",
+        "withdrawals": "103.93",
+        "balance": "6,219.19"
+    },
+    {
+        "date": "14-02-2026",
+        "particulars": "UPI/CR/118667055872/JASHAN PRE/BKID/**ET713@OKHDFCB ANK/UPI//HDF0289855D721A4D E9BAE9A44BE4181486/14/02/20 26 21:07:28",
+        "deposits": "50.00",
+        "withdrawals": "",
+        "balance": "6,269.19"
+    },
+    {
+        "date": "15-02-2026",
+        "particulars": "UPI/DR/604638939338/SWIGGY /ICIC/**WIGGY@ICICI/UPI//AXIC E741640C01C481DBA69B432B FD715A1/15/02/2026 19:05:00",
+        "deposits": "",
+        "withdrawals": "110.00",
+        "balance": "6,159.19"
+    },
+    {
+        "date": "15-02-2026",
+        "particulars": "UPI/DR/604665321215/ACHLES H J/YESB/**QJV3P@PTY/UPI//AXI 909542385FF040C79D2FDD67A 320AF19/15/02/2026 19:41:44",
+        "deposits": "",
+        "withdrawals": "10.00",
+        "balance": "6,149.19"
+    },
+    {
+        "date": "15-02-2026",
+        "particulars": "UPI/DR/604658947700/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWCB1CC16C764FBE5091 9696E31DE2B5/15/02/2026 20:30:52",
+        "deposits": "",
+        "withdrawals": "200.00",
+        "balance": "5,949.19"
+    },
+    {
+        "date": "16-02-2026",
+        "particulars": "Chq: 604658947700 UPI/DR/604791667558/ADWETA EN/YESB/**36193@YBL/UPI//SB I6B6D982235884C1AAB31D64A CCF88BE0/16/02/2026 16:17:50",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "5,889.19"
+    },
+    {
+        "date": "16-02-2026",
+        "particulars": "UPI/DR/604710107981/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWC97A7668BC3EB72F5F4 68EA9821821/16/02/2026 18:41:47",
+        "deposits": "",
+        "withdrawals": "100.00",
+        "balance": "5,789.19"
+    },
+    {
+        "date": "16-02-2026",
+        "particulars": "P/KKBK/**60222@PTHDFC/SEN T USI//PTM2FF17E42908D4BAB9 562B477C185CB46/16/02/2026",
+        "deposits": "300.00",
+        "withdrawals": "",
+        "balance": "6,089.19"
+    },
+    {
+        "date": "17-02-2026",
+        "particulars": "UPI/DR/604838700639/SWIGGY LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI04A7BFB895734EBEBA 679C7ED33769A3/17/02/2026 13:50:23",
+        "deposits": "",
+        "withdrawals": "64.00",
+        "balance": "6,025.19"
+    },
+    {
+        "date": "17-02-2026",
+        "particulars": "UPI/DR/604871178892/PRAPTI ./SBIN/**I8254@OKSBI/UPI//AXI SWC94D1A1A813E6091B30118 86ADF1D7/17/02/2026 21:16:32",
+        "deposits": "",
+        "withdrawals": "30.00",
+        "balance": "5,995.19"
+    },
+    {
+        "date": "17-02-2026",
+        "particulars": "UPI/CR/118801983017/PRAPTI/ SBIN/**45388@WAHDFCBANK/ PAY BY W//HDFCWCDB1C33FC44D6F1 B42A74F132947DC/17/02/2026 21:57:53",
+        "deposits": "30.00",
+        "withdrawals": "",
+        "balance": "6,025.19"
+    },
+    {
+        "date": "17-02-2026",
+        "particulars": "UPI/DR/604867969860/ACHLES H J/YESB/**WK7AM@PTY/UPI//SB IB0CD90A99EA443DF88B4C72 CBF45126C/17/02/2026 22:41:15",
+        "deposits": "",
+        "withdrawals": "70.00",
+        "balance": "5,955.19"
+    },
+    {
+        "date": "18-02-2026",
+        "particulars": "UPI/DR/102735652174/SPOTIFY I/HDFC/**.BDSI@HDFCBANK/E XECUTIO//HDF4B11B12A81F97 E45E063EBEEE20A9CE5/18/02/ 2026 13:13:18",
+        "deposits": "",
+        "withdrawals": "199.00",
+        "balance": "5,756.19"
+    },
+    {
+        "date": "18-02-2026",
+        "particulars": "UPI/DR/118823492383/SWIGGY LTD/UTIB/**GYUPI@AXB/PAY FOR //AXBC696D33DE1B34021B516 4A9E4FB4A6B1/18/02/2026 14:08:09",
+        "deposits": "",
+        "withdrawals": "166.00",
+        "balance": "5,590.19"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 118823492383",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "19-02-2026",
+        "particulars": "UPI/DR/605060207215/RAGHAV GU/ICIC/**505- 2@OKICICI/UPI//AXI50B47AF39 29E428AB97C6A6C54B5DAB8/1 9/02/2026 15:24:05",
+        "deposits": "",
+        "withdrawals": "187.50",
+        "balance": "5,402.69"
+    },
+    {
+        "date": "19-02-2026",
+        "particulars": "UPI/CR/605040428892/ASHOK KU/SBIN/**A1952@OKSBI/UPI// SBI1F823E592A5249C098B7D5 AFE69212CF/19/02/2026 18:19:02",
+        "deposits": "100.00",
+        "withdrawals": "",
+        "balance": "5,502.69"
+    },
+    {
+        "date": "19-02-2026",
+        "particulars": "UPI/DR/605056248998/ETERNA L L/AIRP/**R.RZP@RXAIRTEL/ZO MATOON//AXI22976ACAF44044 2FB9D9B83788CAEEA0/19/02/2 026 19:07:32",
+        "deposits": "",
+        "withdrawals": "1.00",
+        "balance": "5,501.69"
+    },
+    {
+        "date": "19-02-2026",
+        "particulars": "UPI/DR/605056740956/NAMAN/I CIC/**N50- 1@OKICICI/UPI//AXIA6A6174C9 CFA40BF919C38161DE3755D/1 9/02/2026 19:15:11",
+        "deposits": "",
+        "withdrawals": "5,000.00",
+        "balance": "501.69"
+    },
+    {
+        "date": "19-02-2026",
+        "particulars": "UPI/DR/641645517981/DIRECT OR /BKID/**00066@BOI/MERCHAN T//ICID355ABDB4838420891E3 D124E390F1AF/19/02/2026 22:41:00",
+        "deposits": "",
+        "withdrawals": "1.00",
+        "balance": "500.69"
+    },
+    {
+        "date": "20-02-2026",
+        "particulars": "UPI/DR/641774609140/ADWETA EN/YESB/**36193@YBL/UPI//AX IB57FDF02409645A4882C0CEF 080F39DF/20/02/2026 14:30:40",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "440.69"
+    },
+    {
+        "date": "20-02-2026",
+        "particulars": "UPI/DR/641742913310/DAULAT RA/YESB/**L0EIL@PTYS/UPI//A XI9FAAB02FB66F43DB99A140D 432101EFA/20/02/2026 15:04:00",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "390.69"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 641742913310",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "20-02-2026",
+        "particulars": "UPI/DR/605183711831/GAJNANI P/KKBK/**60222@PTHDFC/UPI/ /AXISWCF3052AEDCFB6D4A96 2CD587E11332/20/02/2026 18:07:34",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "340.69"
+    },
+    {
+        "date": "20-02-2026",
+        "particulars": "UPI/CR/109230803440/GAJNANI P/KKBK/**.0222@WAICICI/NA//I CIWCB0A0E9B5DC6137D33AA0 01142483C1/20/02/2026 18:09:11",
+        "deposits": "50.00",
+        "withdrawals": "",
+        "balance": "390.69"
+    },
+    {
+        "date": "21-02-2026",
+        "particulars": "UPI/CR/118937058172/KANIKA SI/PUNB/**IN216@OKHDFCBA NK/UPI//HDFF6E8451DBEE142 A792CE546EB93E3F1F/21/02/2",
+        "deposits": "50.00",
+        "withdrawals": "",
+        "balance": "440.69"
+    },
+    {
+        "date": "21-02-2026",
+        "particulars": "UPI/DR/605237217975/ACHLES H J/YESB/**WK7AM@PTY/UPI//AX ISWC023F5783A1E17FDE11AE B51AF60B5/21/02/2026 01:10:22",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "390.69"
+    },
+    {
+        "date": "21-02-2026",
+        "particulars": "UPI/DR/605264663523/9319883 23/PUNB/**83231@PTYES/UPI// AXISWCEAE2238E5FB4768DD E48984FE1546/21/02/2026 01:10:34",
+        "deposits": "",
+        "withdrawals": "17.30",
+        "balance": "373.39"
+    },
+    {
+        "date": "21-02-2026",
+        "particulars": "Chq: 605264663523 UPI/DR/605288476213/SHAILEN DR/HDFC/**96198@PTHDFC/U PI//AXI27DCB8B33B614E81B44 2D5A7F64567B9/21/02/2026 21:32:01",
+        "deposits": "",
+        "withdrawals": "65.00",
+        "balance": "308.39"
+    },
+    {
+        "date": "22-02-2026",
+        "particulars": "Chq: 605288476213 UPI/DR/641982794872/SWIGGY /ICIC/**WIGGY@ICICI/UPI//AXID 1EA55DC75F74E4593EEDC984 38831D9/22/02/2026 20:46:05",
+        "deposits": "",
+        "withdrawals": "180.00",
+        "balance": "128.39"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 641982794872",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "23-02-2026",
+        "particulars": "UPI/DR/605497481409/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//AXIE24EE1C18D6249FDB8 079DDD29DFE877/23/02/2026 21:34:00",
+        "deposits": "",
+        "withdrawals": "121.51",
+        "balance": "6.88"
+    },
+    {
+        "date": "24-02-2026",
+        "particulars": "UPI/CR/605574667138/NAMAN/I CIC/**N50- 1@OKICICI/UPI//ICI4E132C7DE BDD48F488D1953113DF4B87/2 4/02/2026 21:10:46",
+        "deposits": "2,000.00",
+        "withdrawals": "",
+        "balance": "2,006.88"
+    },
+    {
+        "date": "24-02-2026",
+        "particulars": "UPI/DR/605571505730/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//SBI0EF2EAC931664FC994 BCBA1795854E03/24/02/2026 21:16:18",
+        "deposits": "",
+        "withdrawals": "208.70",
+        "balance": "1,798.18"
+    },
+    {
+        "date": "25-02-2026",
+        "particulars": "UPI/DR/605632726836/ANIL JADON/YESB/**U8R7Q@PTYS/ UPI//AXI45036C69E5FF4492B15 F0EB05289E673/25/02/2026 18:42:16",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "1,748.18"
+    },
+    {
+        "date": "25-02-2026",
+        "particulars": "UPI/DR/605677494369/9319883 23/PUNB/**83231@PTYES/UPI// AXISWC5C5FE8B383A9EF98EA 5CFB00F7323/25/02/2026 22:40:13",
+        "deposits": "",
+        "withdrawals": "55.00",
+        "balance": "1,693.18"
+    },
+    {
+        "date": "26-02-2026",
+        "particulars": "UPI/DR/642397509024/ZOMATO LI/UTIB/**.GPAY@OKPAYAXIS/ UPI//AXI81CD6778B0A14E438E 05705A55086531/26/02/2026 14:15:03",
+        "deposits": "",
+        "withdrawals": "113.10",
+        "balance": "1,580.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "Chq: 642397509024 UPI/DR/605809599241/ADWETA EN/YESB/**36193@YBL/UPI//SB IE63B8667F1874FB182ED1B98 844B26DF/27/02/2026 14:32:28",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "1,520.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "Chq: 605809599241 UPI/DR/605823136304/NADIM/C NRB/**30183@IBL/UPI//AXIFF82 4757864449C4AC6CC4E6B3552 01E/27/02/2026 19:24:42",
+        "deposits": "",
+        "withdrawals": "450.00",
+        "balance": "1,070.08"
+    },
+    {
+        "date": "",
+        "particulars": "Chq: 605823136304",
+        "deposits": "",
+        "withdrawals": "",
+        "balance": ""
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605839670417/ABHISH EK /YESB/**X4AHU@PTY/UPI//ICI1 1658CF00B104C488D068F32FD 10054C/27/02/2026 19:47:39",
+        "deposits": "",
+        "withdrawals": "60.00",
+        "balance": "1,010.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605840234581/PRADEE P J/YESB/**W05DM@PTYS/UPI//A XI0E1CFFBE4FE84494B996577 9D65E6F65/27/02/2026 19:55:35",
+        "deposits": "",
+        "withdrawals": "140.00",
+        "balance": "870.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605832573473/SURESH KU/YESB/**UAB93@PTYS/UPI//I CIFAC9FBD9478149FD929A9D2 8DCB10090/27/02/2026 20:09:38",
+        "deposits": "",
+        "withdrawals": "450.00",
+        "balance": "420.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605820843500/SANGEE TA /YESB/**TUOZM@PTY/UPI//AXI 29A6247C6CE74905B04D29DD 31DC22C2/27/02/2026 20:57:53",
+        "deposits": "",
+        "withdrawals": "50.00",
+        "balance": "370.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605834569851/ARVIND SI/YESB/**Y29PL@PTY/UPI//SB I92F54E6085D34E8CA4A37579 51AB12D9/27/02/2026 22:01:54",
+        "deposits": "",
+        "withdrawals": "70.00",
+        "balance": "300.08"
+    },
+    {
+        "date": "27-02-2026",
+        "particulars": "UPI/DR/605871350063/SWIGGY LTD/UTIB/**GYUPI@AXB/PAY FOR //AXB30FB54157460446E9DB7A A7526D30554/27/02/2026 23:14:53",
+        "deposits": "",
+        "withdrawals": "111.00",
+        "balance": "189.08"
+    },
+    {
+        "date": "28-02-2026",
+        "particulars": "UPI/CR/605946090412/GAJNANI P/KKBK/**60222@PTAXIS/SEN T USI//PTM10DE7249C5924A7D8 A0FDDBF7912DF4F/28/02/2026 19:28:07",
+        "deposits": "500.00",
+        "withdrawals": "",
+        "balance": "689.08"
+    }
+]

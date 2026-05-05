@@ -1,4 +1,4 @@
-from groq import Groq
+# from groq import Groq
 # from .models import TransactionList
 # from pydantic import ValidationError
 import json5
@@ -8,7 +8,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 def extract_json(text: str):
     fenced = re.search(r"```json(.*?)```", text, re.DOTALL)
     if fenced:
@@ -27,8 +27,8 @@ def extract_json(text: str):
 
 
 def repair_json_using_llm(text: str):
-    client = Groq(
-        api_key=GROQ_API_KEY)
+    # client = Groq(
+    #     api_key=GROQ_API_KEY)
 
     prompt = f"""
 Fix the following broken JSON and return ONLY valid strict JSON.
@@ -39,19 +39,21 @@ Return ONLY the corrected JSON array.
 {text}
 """
 
-    response = client.chat.completions.create(
-        model="openai/gpt-oss-120b",
-        temperature=0,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    # response = client.chat.completions.create(
+    #     model="openai/gpt-oss-120b",
+    #     temperature=0,
+    #     messages=[{"role": "user", "content": prompt}],
+    # )
 
-    fixed_output = response.choices[0].message.content
-    return extract_json(fixed_output)
+    # fixed_output = response.choices[0].message.content
+    # return extract_json(fixed_output)
+    print("Groq disabled. Returning empty list.")
+    return []
 
 
 def extract_transactions_using_llm(text: str):
-    client = Groq(
-        api_key=GROQ_API_KEY)
+    # client = Groq(
+    #     api_key=GROQ_API_KEY)
 
     prompt = f"""
 Extract all bank transactions from the following text.
@@ -73,14 +75,14 @@ Text:
 {text}
 """
 
-    response = client.chat.completions.create(
-        model="openai/gpt-oss-120b",
-        temperature=0,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    # response = client.chat.completions.create(
+    #     model="openai/gpt-oss-120b",
+    #     temperature=0,
+    #     messages=[{"role": "user", "content": prompt}],
+    # )
 
-    raw_output = response.choices[0].message.content
-    
+    # raw_output = response.choices[0].message.content
+    raw_output = "[]"
 
     print("TYPE:", type(raw_output))
     print("LENGTH:", len(raw_output) if raw_output else 0)

@@ -38,10 +38,10 @@ This model was trained with SFT.
 
 ### Framework versions
 
-- PEFT 0.18.1
-- TRL: 1.1.0
-- Transformers: 5.5.4
-- Pytorch: 2.11.0
+- PEFT 0.19.1
+- TRL: 1.2.0
+- Transformers: 5.6.2
+- Pytorch: 2.5.1+cu121
 - Datasets: 4.8.4
 - Tokenizers: 0.22.2
 
