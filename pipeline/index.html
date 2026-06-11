@@ -3,443 +3,709 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Credit Mitra – Bank Statement Analyzer</title>
-  <meta name="description" content="AI-powered bank statement analyzer. Upload a PDF, extract transactions, and identify payees automatically." />
+  <title>Credit Mitra — Statement Intelligence</title>
+  <meta name="description" content="Extract and enrich bank statement transactions with structured payee identification." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── reset & tokens ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:         #0b0f19;
-      --surface:    #111827;
-      --surface-2:  #1e293b;
-      --border:     #1e293b;
-      --border-hl:  #334155;
-      --text:       #e2e8f0;
-      --text-dim:   #94a3b8;
-      --accent:     #818cf8;
-      --accent-dim: #6366f1;
-      --green:      #34d399;
-      --green-dim:  #059669;
-      --red:        #f87171;
-      --orange:     #fb923c;
-      --radius:     12px;
-      --radius-sm:  8px;
-      --shadow:     0 4px 24px rgba(0,0,0,.4);
-      --font:       'Inter', system-ui, sans-serif;
+      --ink:        #0f0e0d;
+      --ink-soft:   #1a1917;
+      --surface:    #161514;
+      --elevated:   #1f1e1c;
+      --border:     rgba(255, 248, 235, 0.08);
+      --border-hi:  rgba(255, 248, 235, 0.14);
+      --paper:      #f6f3ec;
+      --paper-dim:  #c8c2b4;
+      --gold:       #c9a962;
+      --gold-dim:   #9a7d42;
+      --sage:       #6b9e82;
+      --clay:       #c17b62;
+      --mist:       #8a8680;
+      --radius:     2px;
+      --radius-lg:  4px;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --mono:       'IBM Plex Mono', ui-monospace, monospace;
+      --ease:       cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    html { font-size: 15px; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
     body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--sans);
+      background: var(--ink);
+      color: var(--paper);
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
+      line-height: 1.5;
     }
 
-    /* ── header ──────────────────────────────────────────────── */
-    header {
-      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 60%, #0b0f19 100%);
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .shell { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+
+    /* ── header ───────────────────────────────────────────── */
+    .site-header {
       border-bottom: 1px solid var(--border);
-      padding: 1.6rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      padding: 1.75rem clamp(1.25rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: end;
+      gap: 1.5rem 2rem;
     }
-    header .logo {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--accent), var(--green));
-      border-radius: 12px;
-      display: grid; place-items: center;
-      font-weight: 800; font-size: 1.3rem; color: #0b0f19;
+    .brand-lockup { display: flex; flex-direction: column; gap: 0.15rem; }
+    .brand-mark {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+      line-height: 1.1;
     }
-    header h1 {
-      font-size: 1.5rem; font-weight: 700;
-      background: linear-gradient(90deg, var(--accent), var(--green));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .brand-mark span { color: var(--gold); font-style: italic; font-weight: 500; }
+    .brand-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mist);
+      font-weight: 500;
     }
-    header .subtitle {
-      font-size: .82rem; color: var(--text-dim); margin-left: auto;
-    }
-
-    /* ── main container ──────────────────────────────────────── */
-    main { flex: 1; padding: 2rem; max-width: 1240px; width: 100%; margin: 0 auto; }
-
-    /* ── upload card ──────────────────────────────────────────── */
-    #upload-section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
+    .header-meta {
+      justify-self: center;
       text-align: center;
-      transition: border-color .25s, box-shadow .25s;
+      max-width: 28rem;
     }
+    .header-meta p {
+      font-size: 0.8125rem;
+      color: var(--paper-dim);
+      line-height: 1.6;
+    }
+    .header-status {
+      justify-self: end;
+      text-align: right;
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    .header-status strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: none;
+    }
+
+    /* ── main layout ──────────────────────────────────────── */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .panel-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* ── upload ───────────────────────────────────────────── */
+    #upload-section {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: clamp(2.5rem, 6vw, 4rem);
+      position: relative;
+      transition: border-color 0.35s var(--ease), background 0.35s var(--ease);
+    }
+    #upload-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.35s var(--ease);
+    }
+    #upload-section.ready::after,
+    #upload-section.drag-over::after { opacity: 1; }
     #upload-section.drag-over {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(129,140,248,.2);
+      border-color: var(--border-hi);
+      background: var(--elevated);
     }
-    #upload-section .icon {
-      font-size: 3rem; margin-bottom: 1rem; opacity: .6;
+
+    .upload-inner {
+      max-width: 32rem;
+      margin: 0 auto;
+      text-align: center;
     }
-    #upload-section h2 {
-      font-size: 1.25rem; font-weight: 600; margin-bottom: .5rem;
+    .upload-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.01em;
     }
-    #upload-section p {
-      color: var(--text-dim); font-size: .88rem; margin-bottom: 1.4rem;
+    .upload-inner .lede {
+      font-size: 0.875rem;
+      color: var(--paper-dim);
+      margin-bottom: 2.25rem;
+      line-height: 1.65;
+    }
+
+    .drop-target {
+      border: 1px dashed var(--border-hi);
+      padding: 2.5rem 1.5rem;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.3s var(--ease);
+    }
+    .drop-target:hover { border-color: rgba(201, 169, 98, 0.45); }
+    .drop-icon {
+      width: 40px; height: 40px;
+      margin: 0 auto 1rem;
+      color: var(--gold-dim);
+    }
+    .drop-target .hint {
+      font-size: 0.8125rem;
+      color: var(--mist);
+    }
+    .drop-target .hint strong {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--paper);
+      font-weight: 500;
     }
     #file-input { display: none; }
 
+    #selected-file {
+      min-height: 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      word-break: break-all;
+    }
+
+    .actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
     .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .65rem 1.6rem;
-      border: none; border-radius: var(--radius-sm);
-      font-family: var(--font); font-weight: 600; font-size: .88rem;
-      cursor: pointer; transition: all .2s;
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s var(--ease);
+      background: none;
+    }
+    .btn-ghost {
+      color: var(--paper-dim);
+      border-color: var(--border-hi);
+    }
+    .btn-ghost:hover {
+      color: var(--paper);
+      border-color: var(--gold-dim);
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
-      color: #fff;
+      background: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
     }
-    .btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .btn-primary:hover:not(:disabled) {
+      background: #d4b56e;
+      border-color: #d4b56e;
+    }
     .btn-primary:disabled {
-      opacity: .45; pointer-events: none;
+      opacity: 0.35;
+      cursor: not-allowed;
     }
-    .btn-success {
-      background: linear-gradient(135deg, var(--green-dim), var(--green));
-      color: #0b0f19;
+    .btn-outline {
+      color: var(--paper);
+      border-color: var(--border-hi);
     }
-    .btn-success:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
 
-    #selected-file {
-      margin-top: 1rem; font-size: .85rem; color: var(--green);
-      min-height: 1.5em;
-    }
-
-    /* ── progress / status ───────────────────────────────────── */
+    /* ── status ───────────────────────────────────────────── */
     #status-section {
       display: none;
-      margin-top: 1.8rem;
-      background: var(--surface);
+      margin-top: 2rem;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
+      background: var(--surface);
+      padding: 1.75rem 2rem;
     }
-    #status-section h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; }
-
+    .status-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.25rem;
+    }
+    .status-head h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    .status-step {
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
     .progress-track {
-      background: var(--surface-2);
-      border-radius: 999px;
-      height: 8px; overflow: hidden;
+      height: 2px;
+      background: var(--border);
       margin-bottom: 1rem;
+      overflow: hidden;
     }
     .progress-bar {
-      height: 100%; border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
-      width: 0%; transition: width .6s ease;
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      transition: width 0.5s var(--ease);
     }
     #status-text {
-      font-size: .85rem; color: var(--text-dim);
+      font-size: 0.8125rem;
+      color: var(--mist);
+    }
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 1px solid var(--border-hi);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: -2px;
+      margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── results ──────────────────────────────────────────── */
+    #results-section { display: none; margin-top: 2.5rem; }
+
+    .results-toolbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .results-toolbar h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .results-toolbar .sub {
+      font-size: 0.8125rem;
+      color: var(--mist);
+      margin-top: 0.25rem;
     }
 
-    /* ── results ─────────────────────────────────────────────── */
-    #results-section {
-      display: none;
-      margin-top: 1.8rem;
-    }
-
-    .results-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 1.2rem; flex-wrap: wrap; gap: .8rem;
-    }
-    .results-header h3 { font-size: 1.15rem; font-weight: 700; }
-
-    /* stats row */
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.6rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
     }
     .stat-card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.2rem;
+      padding: 1.25rem 1.5rem;
     }
-    .stat-card .label { font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; }
-    .stat-card .value { font-size: 1.4rem; font-weight: 700; margin-top: .25rem; }
-    .stat-card .value.green { color: var(--green); }
-    .stat-card .value.red   { color: var(--red); }
-    .stat-card .value.accent { color: var(--accent); }
-    .stat-card .value.orange { color: var(--orange); }
+    .stat-card .label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 0.5rem;
+    }
+    .stat-card .value {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--paper);
+    }
+    .stat-card .value.credit { color: var(--sage); }
+    .stat-card .value.debit { color: var(--clay); }
+    .stat-card .value.gold { color: var(--gold); }
 
-    /* table */
-    .table-wrapper {
-      overflow-x: auto;
-      background: var(--surface);
+    .table-shell {
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
     }
+    .table-scroll { overflow-x: auto; max-height: min(70vh, 640px); overflow-y: auto; }
+
     table {
-      width: 100%; border-collapse: collapse;
-      font-size: .82rem;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
     }
     thead th {
-      position: sticky; top: 0;
-      background: var(--surface-2);
-      padding: .75rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: var(--elevated);
+      padding: 0.85rem 1.15rem;
       text-align: left;
+      font-size: 0.625rem;
       font-weight: 600;
-      color: var(--text-dim);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-size: .72rem;
-      letter-spacing: .06em;
+      color: var(--mist);
       border-bottom: 1px solid var(--border);
+      white-space: nowrap;
     }
+    thead th.col-payee { color: var(--gold); }
     tbody td {
-      padding: .65rem 1rem;
+      padding: 0.9rem 1.15rem;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
-      max-width: 340px;
-      word-break: break-word;
     }
-    tbody tr:hover { background: rgba(129,140,248,.04); }
+    tbody tr { transition: background 0.2s; }
+    tbody tr:hover { background: rgba(255, 248, 235, 0.02); }
     tbody tr:last-child td { border-bottom: none; }
 
-    .badge {
+    td.idx {
+      color: var(--mist);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.75rem;
+      width: 2.5rem;
+    }
+    td.narration {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      line-height: 1.55;
+      color: var(--paper-dim);
+      max-width: 360px;
+      word-break: break-all;
+    }
+    td.amount, td.balance {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    td.payee-cell {
+      font-weight: 500;
+      color: var(--paper);
+      max-width: 200px;
+    }
+    .empty-cell { color: var(--mist); }
+
+    .tag {
       display: inline-block;
-      padding: .15rem .55rem;
-      border-radius: 999px;
-      font-size: .72rem;
+      font-size: 0.625rem;
       font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid;
     }
-    .badge-deposit  { background: rgba(52,211,153,.15); color: var(--green); }
-    .badge-withdraw { background: rgba(248,113,113,.15); color: var(--red); }
-    .badge-payee    { background: rgba(129,140,248,.15); color: var(--accent); }
+    .tag-credit { color: var(--sage); border-color: rgba(107, 158, 130, 0.35); }
+    .tag-debit { color: var(--clay); border-color: rgba(193, 123, 98, 0.35); }
 
-    /* ── footer ──────────────────────────────────────────────── */
-    footer {
-      text-align: center; padding: 1.4rem;
-      font-size: .78rem; color: var(--text-dim);
+    /* ── footer ───────────────────────────────────────────── */
+    .site-footer {
       border-top: 1px solid var(--border);
+      padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mist);
     }
 
-    /* ── spinner ─────────────────────────────────────────────── */
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .spinner {
-      display: inline-block;
-      width: 18px; height: 18px;
-      border: 2px solid var(--border-hl);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      vertical-align: middle;
-      margin-right: .5rem;
+    @media (max-width: 900px) {
+      .site-header { grid-template-columns: 1fr; text-align: left; }
+      .header-meta, .header-status { justify-self: start; text-align: left; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
-
-    /* ── responsive ──────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      main { padding: 1rem; }
-      header { padding: 1rem; }
-      header h1 { font-size: 1.15rem; }
-      .stats-row { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 520px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
+<div class="shell">
 
-<header>
-  <div class="logo">CM</div>
-  <h1>Credit Mitra</h1>
-  <span class="subtitle">AI-Powered Bank Statement Analyzer</span>
-</header>
-
-<main>
-  <!-- Upload -->
-  <section id="upload-section">
-    <div class="icon">📄</div>
-    <h2>Upload Bank Statement PDF</h2>
-    <p>Drop your bank statement here or click to select. Docling will extract tables and the fine-tuned SLM will identify payees.</p>
-    <input type="file" id="file-input" accept=".pdf" />
-    <button class="btn btn-primary" id="select-btn" onclick="document.getElementById('file-input').click()">
-      <span>📁</span> Choose PDF
-    </button>
-    <div id="selected-file"></div>
-    <div style="margin-top:1rem;">
-      <button class="btn btn-success" id="process-btn" disabled onclick="uploadAndProcess()">
-        <span>⚡</span> Process Statement
-      </button>
+  <header class="site-header">
+    <div class="brand-lockup">
+      <div class="brand-mark">Credit <span>Mitra</span></div>
+      <div class="brand-tagline">Statement intelligence</div>
     </div>
-  </section>
-
-  <!-- Status -->
-  <section id="status-section">
-    <h3>🔄 Processing …</h3>
-    <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
-    <div id="status-text"><span class="spinner"></span>Uploading and extracting tables …</div>
-  </section>
-
-  <!-- Results -->
-  <section id="results-section">
-    <div class="results-header">
-      <h3>📊 Extracted Transactions</h3>
-      <button class="btn btn-success" id="download-btn" onclick="downloadJSON()">
-        <span>⬇</span> Download JSON
-      </button>
+    <div class="header-meta">
+      <p>Structured extraction from bank statement PDFs, with payee resolution on transaction narrations.</p>
     </div>
-
-    <div class="stats-row" id="stats-row"></div>
-
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Particulars</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Balance</th>
-            <th>Payee (SLM)</th>
-          </tr>
-        </thead>
-        <tbody id="results-body"></tbody>
-      </table>
+    <div class="header-status">
+      Inference
+      <strong>payee-lora · Ollama</strong>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer>
-  Credit Mitra · Built with Docling + SmolLM2 LoRA · IITB Chanakya Fellowship
-</footer>
+  <main>
+    <p class="panel-label">Ingest</p>
+    <section id="upload-section">
+      <div class="upload-inner">
+        <h2>Analyze a statement</h2>
+        <p class="lede">Upload a PDF bank statement. Tables are parsed, narrations normalized to a single line, and payees identified per transaction.</p>
+
+        <div class="drop-target" id="drop-target" role="button" tabindex="0" aria-label="Choose PDF file">
+          <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+            <path d="M12 16V4m0 0L8 8m4-4 4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+          </svg>
+          <p class="hint">
+            Drag and drop your PDF here
+            <strong>or click to browse</strong>
+          </p>
+        </div>
+
+        <input type="file" id="file-input" accept=".pdf" />
+        <div id="selected-file"></div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" onclick="document.getElementById('file-input').click()">Select file</button>
+          <button type="button" class="btn btn-primary" id="process-btn" disabled onclick="uploadAndProcess()">Run extraction</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="status-section" aria-live="polite">
+      <div class="status-head">
+        <h3>Processing</h3>
+        <span class="status-step" id="status-step">Step 1 of 2</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+      <div id="status-text"><span class="spinner"></span>Parsing document structure…</div>
+    </section>
+
+    <section id="results-section">
+      <div class="results-toolbar">
+        <div>
+          <h3>Transaction ledger</h3>
+          <p class="sub" id="results-subtitle"></p>
+        </div>
+        <button type="button" class="btn btn-outline" onclick="downloadJSON()">Export JSON</button>
+      </div>
+
+      <div class="stats-row" id="stats-row"></div>
+
+      <div class="table-shell">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Date</th>
+                <th>Narration</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th class="col-payee">Payee</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>IITB Chanakya Fellowship</span>
+    <span>Docling · Stateless inference</span>
+  </footer>
+</div>
 
 <script>
-  // ── file selection ────────────────────────────────────────────
   const fileInput = document.getElementById('file-input');
   const processBtn = document.getElementById('process-btn');
   const selectedFile = document.getElementById('selected-file');
-
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) {
-      selectedFile.textContent = '✔ ' + fileInput.files[0].name;
-      processBtn.disabled = false;
-    }
-  });
-
-  // drag-and-drop
-  const dropZone = document.getElementById('upload-section');
-  ['dragenter','dragover'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('drag-over'); }));
-  ['dragleave','drop'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.remove('drag-over'); }));
-  dropZone.addEventListener('drop', ev => {
-    const files = ev.dataTransfer.files;
-    if (files.length && files[0].name.toLowerCase().endsWith('.pdf')) {
-      fileInput.files = files;
-      selectedFile.textContent = '✔ ' + files[0].name;
-      processBtn.disabled = false;
-    }
-  });
-
-  // ── data store ────────────────────────────────────────────────
+  const uploadSection = document.getElementById('upload-section');
+  const dropTarget = document.getElementById('drop-target');
   let resultData = [];
 
-  // ── upload & process ──────────────────────────────────────────
+  function setFile(file) {
+    if (!file || !file.name.toLowerCase().endsWith('.pdf')) return;
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    fileInput.files = dt.files;
+    selectedFile.textContent = file.name;
+    processBtn.disabled = false;
+    uploadSection.classList.add('ready');
+  }
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) setFile(fileInput.files[0]);
+  });
+
+  dropTarget.addEventListener('click', () => fileInput.click());
+  dropTarget.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+  });
+
+  ['dragenter', 'dragover'].forEach(evt =>
+    uploadSection.addEventListener(evt, e => {
+      e.preventDefault();
+      uploadSection.classList.add('drag-over');
+    })
+  );
+  ['dragleave', 'drop'].forEach(evt =>
+    uploadSection.addEventListener(evt, e => {
+      e.preventDefault();
+      uploadSection.classList.remove('drag-over');
+    })
+  );
+  uploadSection.addEventListener('drop', e => {
+    if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]);
+  });
+
   async function uploadAndProcess() {
     const file = fileInput.files[0];
     if (!file) return;
 
-    // show progress
     document.getElementById('status-section').style.display = 'block';
     document.getElementById('results-section').style.display = 'none';
     processBtn.disabled = true;
 
     const bar = document.getElementById('progress-bar');
     const statusText = document.getElementById('status-text');
+    const statusStep = document.getElementById('status-step');
 
-    bar.style.width = '15%';
-    statusText.innerHTML = '<span class="spinner"></span>Uploading PDF and extracting tables with Docling …';
+    bar.style.background = 'var(--gold)';
+    bar.style.width = '12%';
+    statusStep.textContent = 'Step 1 of 2';
+    statusText.innerHTML = '<span class="spinner"></span>Parsing document structure and extracting tables…';
 
     const form = new FormData();
     form.append('pdf', file);
 
-    // fake progress
-    let fakeProgress = 15;
+    let progress = 12;
     const interval = setInterval(() => {
-      fakeProgress = Math.min(fakeProgress + Math.random() * 4, 90);
-      bar.style.width = fakeProgress + '%';
-    }, 800);
+      progress = Math.min(progress + Math.random() * 3, 88);
+      bar.style.width = progress + '%';
+    }, 700);
 
     try {
-      statusText.innerHTML = '<span class="spinner"></span>Running Docling extraction + SLM payee inference …';
+      statusStep.textContent = 'Step 2 of 2';
+      statusText.innerHTML = '<span class="spinner"></span>Resolving payees from narrations…';
       const resp = await fetch('/process-pdf', { method: 'POST', body: form });
-
       clearInterval(interval);
 
-      if (!resp.ok) throw new Error('Server returned ' + resp.status);
+      if (!resp.ok) {
+        const errBody = await resp.text();
+        throw new Error(errBody || ('Request failed (' + resp.status + ')'));
+      }
 
       const data = await resp.json();
       resultData = data.transactions || [];
 
       bar.style.width = '100%';
-      statusText.innerHTML = '✅ Done — ' + resultData.length + ' rows extracted.';
-
+      statusText.textContent = 'Complete — ' + resultData.length + ' transactions processed.';
       renderResults();
     } catch (err) {
       clearInterval(interval);
       bar.style.width = '100%';
-      bar.style.background = 'var(--red)';
-      statusText.innerHTML = '❌ Error: ' + err.message;
+      bar.style.background = 'var(--clay)';
+      statusText.textContent = 'Processing failed: ' + err.message;
+    } finally {
+      processBtn.disabled = !fileInput.files.length;
     }
   }
 
-  // ── render ────────────────────────────────────────────────────
+  function formatINR(n) {
+    return '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
   function renderResults() {
     if (!resultData.length) return;
 
     document.getElementById('results-section').style.display = 'block';
 
-    // stats
     let deposits = 0, withdrawals = 0, payeeCount = 0;
     resultData.forEach(t => {
-      const dep = parseFloat((t.deposits || '').replace(/,/g, '')) || 0;
-      const wth = parseFloat((t.withdrawals || '').replace(/,/g, '')) || 0;
-      deposits += dep;
-      withdrawals += wth;
+      deposits += parseFloat((t.deposits || '').replace(/,/g, '')) || 0;
+      withdrawals += parseFloat((t.withdrawals || '').replace(/,/g, '')) || 0;
       if (t.payee) payeeCount++;
     });
 
+    const coverage = resultData.length
+      ? Math.round(payeeCount / resultData.length * 100)
+      : 0;
+
+    document.getElementById('results-subtitle').textContent =
+      resultData.length + ' rows · ' + coverage + '% payee coverage';
+
     document.getElementById('stats-row').innerHTML = `
-      <div class="stat-card"><div class="label">Total Rows</div><div class="value accent">${resultData.length}</div></div>
-      <div class="stat-card"><div class="label">Total Deposits</div><div class="value green">₹${deposits.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div></div>
-      <div class="stat-card"><div class="label">Total Withdrawals</div><div class="value red">₹${withdrawals.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div></div>
-      <div class="stat-card"><div class="label">Payees Identified</div><div class="value orange">${payeeCount} / ${resultData.length}</div></div>
+      <div class="stat-card">
+        <div class="label">Transactions</div>
+        <div class="value gold">${resultData.length}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Credits</div>
+        <div class="value credit">${formatINR(deposits)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Debits</div>
+        <div class="value debit">${formatINR(withdrawals)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Payees resolved</div>
+        <div class="value">${payeeCount}</div>
+      </div>
     `;
 
-    // table
-    const tbody = document.getElementById('results-body');
-    tbody.innerHTML = resultData.map((t, i) => {
-      const isDeposit = !!t.deposits && t.deposits !== '' && t.deposits !== 'Opening Balance' && t.deposits !== 'Closing Balance';
+    document.getElementById('results-body').innerHTML = resultData.map((t, i) => {
+      const isDeposit = !!t.deposits && t.deposits !== '' &&
+        t.deposits !== 'Opening Balance' && t.deposits !== 'Closing Balance';
       const isWithdraw = !!t.withdrawals && t.withdrawals !== '';
-      const amount = isDeposit ? t.deposits : (isWithdraw ? t.withdrawals : '—');
-      const typeBadge = isDeposit
-        ? '<span class="badge badge-deposit">CREDIT</span>'
-        : (isWithdraw ? '<span class="badge badge-withdraw">DEBIT</span>' : '—');
-      const payeeBadge = t.payee ? `<span class="badge badge-payee">${escHtml(t.payee)}</span>` : '<span style="color:var(--text-dim)">—</span>';
+      const amount = isDeposit ? t.deposits : (isWithdraw ? t.withdrawals : '');
+      const typeTag = isDeposit
+        ? '<span class="tag tag-credit">Credit</span>'
+        : (isWithdraw ? '<span class="tag tag-debit">Debit</span>' : '<span class="empty-cell">—</span>');
+      const payee = t.payee
+        ? escHtml(t.payee)
+        : '<span class="empty-cell">—</span>';
 
       return `<tr>
-        <td>${i + 1}</td>
-        <td>${escHtml(t.date) || '—'}</td>
-        <td>${escHtml(t.particulars) || '—'}</td>
-        <td>${typeBadge}</td>
-        <td>${escHtml(amount)}</td>
-        <td>${escHtml(t.balance) || '—'}</td>
-        <td>${payeeBadge}</td>
+        <td class="idx">${String(i + 1).padStart(2, '0')}</td>
+        <td>${escHtml(t.date) || '<span class="empty-cell">—</span>'}</td>
+        <td class="narration">${escHtml(t.particulars) || '<span class="empty-cell">—</span>'}</td>
+        <td>${typeTag}</td>
+        <td class="amount">${escHtml(amount) || '<span class="empty-cell">—</span>'}</td>
+        <td class="balance">${escHtml(t.balance) || '<span class="empty-cell">—</span>'}</td>
+        <td class="payee-cell">${payee}</td>
       </tr>`;
     }).join('');
   }
@@ -451,17 +717,15 @@
     return d.innerHTML;
   }
 
-  // ── download ──────────────────────────────────────────────────
   function downloadJSON() {
     const blob = new Blob([JSON.stringify(resultData, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'transactions_with_payee.json';
+    a.download = 'credit_mitra_transactions.json';
     a.click();
     URL.revokeObjectURL(url);
   }
 </script>
-
 </body>
 </html>
