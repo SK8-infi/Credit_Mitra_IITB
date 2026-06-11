@@ -2,47 +2,26 @@
 Credit Mitra – PDF → Structured Transactions Pipeline
 =====================================================
 Upload a bank-statement PDF.  Docling extracts tables,
-the fine-tuned SmolLM2 LoRA adapter predicts payee names,
-and you download the enriched JSON.
+payee-lora (via Ollama) predicts payee names, and you download enriched JSON.
+
+Each inference is a fresh, stateless Ollama /api/generate call (no context field).
 """
 
-import json
 import os
-import sys
+import re
 import tempfile
 from pathlib import Path
 
-import torch
+import httpx
 import uvicorn
 from docling.document_converter import DocumentConverter
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
-from peft import PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# ── paths ────────────────────────────────────────────────────────────────
-BASE_MODEL_NAME = "HuggingFaceTB/SmolLM2-135M-Instruct"
-LORA_PATH = str(
-    Path(__file__).resolve().parent.parent / "Fine-tuning" / "outputs" / "payee-lora-smollm2"
-)
+# ── Ollama config ────────────────────────────────────────────────────────
+OLLAMA_BASE_URL = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "payee-lora:latest")
 
-# ── model loading (once at startup) ─────────────────────────────────────
-print("Loading base model …")
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME, use_fast=True)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-base_model = AutoModelForCausalLM.from_pretrained(
-    BASE_MODEL_NAME,
-    torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
-    device_map="auto",
-)
-print("Loading LoRA adapter …")
-model = PeftModel.from_pretrained(base_model, LORA_PATH)
-model.eval()
-print("Model ready ✓")
-
-# ── inference helper ─────────────────────────────────────────────────────
 SYSTEM_INSTRUCTION = (
     "You are an information extraction model. Extract only the payee name "
     "from the transaction narration. Return only the payee text, with no extra words."
@@ -57,34 +36,30 @@ def build_prompt(narration: str) -> str:
     )
 
 
-NOISE_TOKENS = ["UPI", "HDFC"]
+def predict_payee(narration: str, client: httpx.Client) -> str:
+    """Stateless payee extraction via Ollama (no conversation context)."""
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": build_prompt(narration),
+        "stream": False,
+        "raw": True,
+        "options": {"temperature": 0, "num_predict": 32},
+    }
+    # Never send "context" — each transaction is an independent request.
+    resp = client.post(f"{OLLAMA_BASE_URL}/api/generate", json=payload)
+    resp.raise_for_status()
+    return (resp.json().get("response") or "").strip()
 
 
-def clean_narration(narration: str) -> str:
-    """Remove noisy bank-specific tokens before feeding to the SLM."""
-    cleaned = narration
-    for token in NOISE_TOKENS:
-        cleaned = cleaned.replace(token, "")
-    # collapse multiple slashes / spaces left behind
-    import re
-    cleaned = re.sub(r"/{2,}", "/", cleaned)
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    return cleaned.strip("/ ")
-
-
-def predict_payee(narration: str, max_new_tokens: int = 32) -> str:
-    prompt = build_prompt(clean_narration(narration))
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    with torch.no_grad():
-        out = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=False,
-            temperature=0.0,
-            pad_token_id=tokenizer.eos_token_id,
-        )
-    full_text = tokenizer.decode(out[0], skip_special_tokens=True)
-    return full_text[len(prompt):].strip()
+def normalize_narration(text: str) -> str:
+    """Collapse multi-line narrations into one line; segments join with no gap."""
+    if not text:
+        return ""
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    parts = [line.strip() for line in text.split("\n") if line.strip()]
+    if parts:
+        return "".join(parts)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 # ── Docling extraction ───────────────────────────────────────────────────
@@ -101,12 +76,11 @@ def extract_transactions(pdf_path: str) -> list[dict]:
         for _, row in df.iterrows():
             rec = {
                 "date": str(row.get("date", "")).strip(),
-                "particulars": str(row.get("particulars", "")).strip(),
+                "particulars": normalize_narration(str(row.get("particulars", ""))),
                 "deposits": str(row.get("deposits", "")).strip(),
                 "withdrawals": str(row.get("withdrawals", "")).strip(),
                 "balance": str(row.get("balance", "")).strip(),
             }
-            # skip entirely empty rows
             if not any(rec.values()):
                 continue
             rows.append(rec)
@@ -125,7 +99,6 @@ async def index():
 
 @app.post("/process-pdf")
 async def process_pdf(pdf: UploadFile = File(...)):
-    # save uploaded file
     suffix = Path(pdf.filename or "upload.pdf").suffix or ".pdf"
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
     content = await pdf.read()
@@ -133,22 +106,21 @@ async def process_pdf(pdf: UploadFile = File(...)):
     tmp.close()
 
     try:
-        # Step 1 — Docling extraction
         transactions = extract_transactions(tmp.name)
 
-        # Step 2 — SLM payee prediction for each row with a narration
-        for txn in transactions:
-            narration = txn.get("particulars", "")
-            if narration and narration not in ("Opening Balance", "Closing Balance"):
-                txn["payee"] = predict_payee(narration)
-            else:
-                txn["payee"] = ""
+        with httpx.Client(timeout=120.0) as client:
+            for txn in transactions:
+                narration = txn.get("particulars", "")
+                if narration and narration not in ("Opening Balance", "Closing Balance"):
+                    txn["payee"] = predict_payee(narration, client)
+                else:
+                    txn["payee"] = ""
 
         return JSONResponse(content={"status": "success", "transactions": transactions})
     finally:
         os.unlink(tmp.name)
 
 
-# ── run ──────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    print(f"Ollama: {OLLAMA_BASE_URL}  model={OLLAMA_MODEL}")
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=False)
